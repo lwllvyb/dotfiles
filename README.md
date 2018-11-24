@@ -1,4 +1,4 @@
-# Hanxi's dotfiles
+# config  
 
 bash + tmux + neovim
 
@@ -7,13 +7,13 @@ bash + tmux + neovim
 ### Linux
 
 ```bash
-curl https://raw.githubusercontent.com/hanxi/dotfiles/master/bootstrap.sh | bash
+curl https://raw.githubusercontent.com/lwllvyb/dotfiles/master/bootstrap.sh | bash
 ```
 
 Or:
 
 ```bash
-wget -O - https://raw.githubusercontent.com/hanxi/dotfiles/master/bootstrap.sh | bash
+wget -O - https://raw.githubusercontent.com/lwllvyb/dotfiles/master/bootstrap.sh | bash
 ```
 
 But I suggest use your own repository fork from this.
