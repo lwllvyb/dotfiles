@@ -21,7 +21,7 @@ fi
 
 # 判断 ~/.local/etc/config.sh 存在的话，就 source 它一下
 if [ -f "$HOME/.local/etc/config.sh" ]; then
-    . "$HOME/.local/etc/config.sh"
+   . "$HOME/.local/etc/config.sh"
 fi
 
 # 整理 PATH，删除重复路径
