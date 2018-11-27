@@ -34,10 +34,9 @@ export TERM=xterm-256color
 export TERM_ITALICS=true
 
 # for http proxy
-export http_proxy="http://127.0.0.1:1080"
-export https_proxy="https://127.0.0.1:1080"
-export ftp_proxy=$http_proxy
-export rsync_proxy=$http_proxy
+alias proxy=`export http_proxy="http://127.0.0.1:1080"; export https_proxy="https://127.0.0.1:1080";export ftp_proxy=$http_proxy;export rsync_proxy=$http_proxy`
+
+alias unproxy=`unset http_proxy; unset https_proxy; unset ftp_proxy; unset rsync_proxy`
 
 # alias
 # alias vim=nvim
