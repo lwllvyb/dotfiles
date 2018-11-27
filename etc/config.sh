@@ -40,5 +40,5 @@ export ftp_proxy=$http_proxy
 export rsync_proxy=$http_proxy
 
 # alias
-alias vim=nvim
+# alias vim=nvim
 
