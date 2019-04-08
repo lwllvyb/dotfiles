@@ -1,21 +1,29 @@
 #! /usr/bin/env bash
 
-ETC=~/.local/etc
-mkdir -p $ETC
+################## var
+PROJECT=~/.dotfiles
+DST_ETC=~/.local/etc
+
+
+
+mkdir -p $DST_ETC
 
 # git clone respository
-mkdir -p .tmp
-cd .tmp
-rm -rf dotfiles
-git clone https://github.com/lwllvyb/dotfiles.git
-cd dotfiles
-cp -rf etc/* $ETC/
+rm -rf $PROJECT
+git clone https://github.com/lwllvyb/dotfiles.git $PROJECT
+cd $PROJECT
+cp -rf etc/* $DST_ETC/
 
-# source init.sh
-sed -i "\:$ETC/init.sh:d" ~/.bashrc
-echo ". $ETC/init.sh" >> ~/.bashrc
+################# source init.sh
+sed -i "" "\:$DST_ETC/init.sh:d" ~/.bashrc
+echo ". $DST_ETC/init.sh" >> ~/.bashrc
 
-# vim /nvim
+
+################# vim /nvim
 echo "source $PWD/vim-init/init.vim" >> ~/.vimrc
 
+mkdir -p ~/.config/nvim
+ln -s $PWD/vim-init/init.vim ~/.config/nvim/init.vim
+
+#################
 . ~/.bashrc
