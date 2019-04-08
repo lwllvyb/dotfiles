@@ -14,4 +14,8 @@ cp -rf etc/* $ETC/
 # source init.sh
 sed -i "\:$ETC/init.sh:d" ~/.bashrc
 echo ". $ETC/init.sh" >> ~/.bashrc
+
+# vim /nvim
+echo "source $PWD/vim-init/init.vim" >> ~/.vimrc
+
 . ~/.bashrc
