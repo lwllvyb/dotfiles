@@ -37,6 +37,7 @@ export TERM_ITALICS=true
 alias proxy=`export http_proxy="http://127.0.0.1:1080"; export https_proxy="https://127.0.0.1:1080";export ftp_proxy=$http_proxy;export rsync_proxy=$http_proxy`
 
 alias unproxy=`unset http_proxy; unset https_proxy; unset ftp_proxy; unset rsync_proxy`
+export CHEAT_USER_DIR='$HOME/.local/etc/cheat'
 
 # alias
 # alias vim=nvim

@@ -11,6 +11,10 @@ mkdir -p $DST_ETC
 # git clone respository
 rm -rf $PROJECT
 git clone https://github.com/lwllvyb/dotfiles.git $PROJECT
+if [ ! -d $PROJECT ]; then
+	echo "dotfile clone fail"
+	exit 1
+fi
 cd $PROJECT
 cp -rf etc/* $DST_ETC/
 
