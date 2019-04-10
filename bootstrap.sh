@@ -27,7 +27,7 @@ echo ". $DST_ETC/init.sh" >> ~/.bashrc
 echo "source $PWD/vim-init/init.vim" >> ~/.vimrc
 
 mkdir -p ~/.config/nvim
-ln -s $PWD/vim-init/init.vim ~/.config/nvim/init.vim
+ln -sf $PWD/vim-init/init.vim ~/.config/nvim/init.vim
 
 #################
 . ~/.bashrc
