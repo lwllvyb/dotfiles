@@ -1,0 +1,29 @@
+tmux new -s ssession 创建
+tmux at [-t 会话名]
+tmux ls 列出所有会话
+tmux kill-session -t 会话名
+关闭所有会话
+tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
+
+ctrl+b:
+:new<会话>  启动新会话
+s			列出所有会话
+$			重命名当前会话
+
+c  创建新窗口
+w  列出所有窗口
+n  后一个窗口
+p  前一个窗口
+f  查找窗口
+,  重命名当前窗口
+&  关闭当前窗口
+
+%  垂直分割
+"  水平分割
+z 切换窗格最大化/最小化
+
+d  退出 tmux（tmux 仍在后台运行）
+t  窗口中央显示一个数字时钟
+?  列出所有快捷键
+:  命令提示符
+
