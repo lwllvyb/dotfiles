@@ -22,6 +22,9 @@ cp -rf etc/* $DST_ETC/
 sed -i "" "\:$DST_ETC/init.sh:d" ~/.bashrc
 echo ". $DST_ETC/init.sh" >> ~/.bashrc
 
+sed -i "" "\:$DST_ETC/init.sh:d" ~/.zshrc
+echo ". $DST_ETC/init.sh" >> ~/.zshrc
+
 
 ################# vim /nvim
 echo "source $PWD/vim-init/init.vim" >> ~/.vimrc
