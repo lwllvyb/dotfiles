@@ -129,7 +129,7 @@ set formatoptions+=m
 set formatoptions+=B
 
 " 文件换行符，默认使用 unix 换行符
-set ffs=unix,os,mac
+set ffs=unix,dos,mac
 
 
 "----------------------------------------------------------------------
