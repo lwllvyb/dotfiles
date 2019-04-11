@@ -114,7 +114,8 @@ set lazyredraw
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 
 " 设置分隔符可视
-set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
+" set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
+set listchars=trail:.,extends:>,precedes:<
 
 
 " 设置 tags：当前文件所在目录往上向根目录搜索直到碰到 .tags 文件
@@ -128,7 +129,7 @@ set formatoptions+=m
 set formatoptions+=B
 
 " 文件换行符，默认使用 unix 换行符
-set ffs=unix,dos,mac
+set ffs=unix,os,mac
 
 
 "----------------------------------------------------------------------

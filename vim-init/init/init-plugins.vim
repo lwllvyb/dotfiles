@@ -51,6 +51,10 @@ Plug 'luochen1990/rainbow'
 Plug 'lwllvyb/vim-workspace'
 Plug 'skywind3000/vim-preview'
 Plug 'romainl/vim-qf'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 "----------------------------------------------------------------------
 " 自动生成 ctags/gtags，并提供自动索引功能
@@ -252,3 +256,12 @@ function QFixToggle()
   endif
 endfunction
 nnoremap <space>q :call QFixToggle()<cr>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+nnoremap <space>bn :bn<cr>
+nnoremap <space>bp :bp<cr>
+nnoremap <space>bd :bdelete<cr>
+nnoremap <space>wq :wq<cr>
+
+let g:gitgutter_highlight_lines = 1
