@@ -10,6 +10,7 @@
 "----------------------------------------------------------------------
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
+let mapleader = " "
 if !exists('g:bundle_group')
 	let g:bundle_group = ['tags', 'leaderf']
 endif
@@ -55,6 +56,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
 
 "----------------------------------------------------------------------
 " 自动生成 ctags/gtags，并提供自动索引功能
@@ -269,3 +271,21 @@ nnoremap <space>bd :bdelete<cr>
 nnoremap <space>wq :wq<cr>
 
 let g:gitgutter_highlight_lines = 1
+
+"----------------- nerdcommenter ----------------
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+" <leader> c <space> troggle
+
