@@ -226,18 +226,22 @@ let g:workspace_autosave_always = 1
 let g:workspace_autosave_untrailspaces = 0
 
 let g:gutentags_plus_nomap = 1
-  noremap <silent> <space>gs :GscopeFind s <C-R><C-W><cr>
-  noremap <silent> <space>gg :GscopeFind g <C-R><C-W><cr>
-  noremap <silent> <space>gc :GscopeFind c <C-R><C-W><cr>
-  noremap <silent> <space>gt :GscopeFind t <C-R><C-W><cr>
-  noremap <silent> <space>ge :GscopeFind e <C-R><C-W><cr>
-  noremap <silent> <space>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-  noremap <silent> <space>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-  noremap <silent> <space>gd :GscopeFind d <C-R><C-W><cr>
-  noremap <silent> <space>ga :GscopeFind a <C-R><C-W><cr>
 
+" 按照文件类型设置不同的快捷键
+autocmd FileType cpp,c noremap <silent> <space>gs :GscopeFind s <C-R><C-W><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>gg :GscopeFind g <C-R><C-W><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>gc :GscopeFind c <C-R><C-W><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>gt :GscopeFind t <C-R><C-W><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>ge :GscopeFind e <C-R><C-W><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>gd :GscopeFind d <C-R><C-W><cr>
+autocmd FileType cpp,c nnoremap <silent> <space>ga :GscopeFind a <C-R><C-W><cr>
+
+" quickfix  set keymap
 autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+autocmd FileType qf nnoremap <silent><buffer> <Esc> :call QFixToggle()<cr>
 
 
 function QFixToggle()
@@ -255,7 +259,6 @@ function QFixToggle()
     copen
   endif
 endfunction
-nnoremap <space>q :call QFixToggle()<cr>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
