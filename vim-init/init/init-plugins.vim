@@ -131,7 +131,7 @@ if index(g:bundle_group, 'leaderf') >= 0
 		let g:ctrlp_working_path = 0
 
 		" CTRL+p 打开文件模糊匹配
-		noremap <space>fp :CtrlP<cr>
+		noremap <space>pf :CtrlP<cr>
 
 		" CTRL+n 打开最近访问过的文件的匹配
 		noremap <space>fm :CtrlPMRUFiles<cr>
@@ -265,8 +265,8 @@ autocmd FileType qf nnoremap <silent><buffer> <Esc> :call QFixToggle()<cr>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-nnoremap <space><Tab> :bn<cr>
-nnoremap <space><s-Tab> :bp<cr>
+nnoremap <Tab> :bn<cr>
+nnoremap <s-Tab> :bp<cr>
 nnoremap <space>bd :bdelete<cr>
 nnoremap <space>wq :wq<cr>
 
@@ -285,7 +285,7 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 " <leader> c <space> troggle
 
