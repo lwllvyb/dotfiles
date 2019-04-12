@@ -11,7 +11,7 @@
 " 默认情况下的分组，可以再前面覆盖之
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
-	let g:bundle_group = ['tags', 'spacef']
+	let g:bundle_group = ['tags', 'leaderf']
 endif
 
 "----------------------------------------------------------------------
@@ -105,9 +105,9 @@ endif
 
 
 "----------------------------------------------------------------------
-" spaceF：CtrlP / FZF 的超级代替者，文件模糊匹配，tags/函数名 选择
+" leaderf：CtrlP / FZF 的超级代替者，文件模糊匹配，tags/函数名 选择
 "----------------------------------------------------------------------
-if index(g:bundle_group, 'spacef') >= 0
+if index(g:bundle_group, 'leaderf') >= 0
 		" 不支持 python ，使用 CtrlP 代替
 		Plug 'ctrlpvim/ctrlp.vim'
 
@@ -129,13 +129,13 @@ if index(g:bundle_group, 'spacef') >= 0
 		let g:ctrlp_working_path = 0
 
 		" CTRL+p 打开文件模糊匹配
-		noremap <c-p> :CtrlP<cr>
+		noremap <space>fp :CtrlP<cr>
 
 		" CTRL+n 打开最近访问过的文件的匹配
-		noremap <c-n> :CtrlPMRUFiles<cr>
+		noremap <space>fm :CtrlPMRUFiles<cr>
 
 		" ALT+p 显示当前文件的函数列表
-		noremap <m-p> :CtrlPFunky<cr>
+		noremap <space>fo :CtrlPFunky<cr>
 
 		" ALT+n 匹配 buffer
 		noremap <m-n> :CtrlPBuffer<cr>
@@ -186,12 +186,12 @@ nmap <silent> <space>gr <Plug>(coc-references)<Paste>
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
-nnoremap <silent> <space>fs  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>gs  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>fp  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>gp  :<C-u>CocList -I symbols<cr>
 
 
-" spacef
+" leaderf
 noremap <space>ff :leaderfFile<cr>
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_WildIgnore = {
