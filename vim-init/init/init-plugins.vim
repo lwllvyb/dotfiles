@@ -264,7 +264,7 @@ autocmd FileType qf nnoremap <silent><buffer> <Esc> :call QFixToggle()<cr>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 nnoremap <space><Tab> :bn<cr>
-nNoremap <space><s-Tab> :bp<cr>
+nnoremap <space><s-Tab> :bp<cr>
 nnoremap <space>bd :bdelete<cr>
 nnoremap <space>wq :wq<cr>
 
