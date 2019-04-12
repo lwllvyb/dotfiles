@@ -227,6 +227,23 @@ let g:workspace_autosave_untrailspaces = 0
 
 let g:gutentags_plus_nomap = 1
 
+" 设置 quickfix 的 Toggle 函数
+function QFixToggle()
+  let l:wins=getwininfo()
+  let l:exist = 0
+  for win in l:wins
+	if win['quickfix'] == 1
+		let l:exist = 1
+		break
+	endif
+  endfor
+  if l:exist != 0
+    cclose
+  else
+    copen
+  endif
+endfunction
+
 " 按照文件类型设置不同的快捷键
 autocmd FileType cpp,c noremap <silent> <space>gs :GscopeFind s <C-R><C-W><cr>
 autocmd FileType cpp,c nnoremap <silent> <space>gg :GscopeFind g <C-R><C-W><cr>
@@ -244,26 +261,10 @@ autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 autocmd FileType qf nnoremap <silent><buffer> <Esc> :call QFixToggle()<cr>
 
 
-function QFixToggle()
-  let l:wins=getwininfo()
-  let l:exist = 0
-  for win in l:wins
-	if win['quickfix'] == 1
-		let l:exist = 1
-		break
-	endif
-  endfor
-  if l:exist != 0
-    cclose
-  else
-    copen
-  endif
-endfunction
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-nnoremap <space>bn :bn<cr>
-nnoremap <space>bp :bp<cr>
+nnoremap <space><Tab> :bn<cr>
+nNoremap <space><s-Tab> :bp<cr>
 nnoremap <space>bd :bdelete<cr>
 nnoremap <space>wq :wq<cr>
 
