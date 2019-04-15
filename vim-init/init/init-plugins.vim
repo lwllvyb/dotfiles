@@ -57,6 +57,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 "----------------------------------------------------------------------
 " 自动生成 ctags/gtags，并提供自动索引功能
@@ -288,4 +289,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 " <leader> c <space> troggle
+
+let g:Lf_ShortcutF = '<c-p>'
 
