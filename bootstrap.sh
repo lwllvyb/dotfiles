@@ -27,6 +27,7 @@ echo ". $DST_ETC/init.sh" >> ~/.zshrc
 
 
 ################# vim /nvim
+sed -i "" "\:$PWD/vim-init/init.vim:d" ~/.zshrc
 echo "source $PWD/vim-init/init.vim" >> ~/.vimrc
 
 mkdir -p ~/.config/nvim
