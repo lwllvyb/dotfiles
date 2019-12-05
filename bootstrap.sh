@@ -28,10 +28,16 @@ echo ". $DST_ETC/init.sh" >> ~/.zshrc
 
 ################# vim /nvim
 sed -i "" "\:$PWD/vim_config/vimrc:d" ~/.zshrc
-echo "source $PWD/vim_config/vimrc" >> ~/.vimrc
 
+# vim
+mv ~/.vimrc ~/.vimrc.bak.$(date +"%Y%m%d_%H%M")
+ln -sf $PWD/vim_config/vimrc ~/.vimrc
+
+#nvim
 mkdir -p ~/.config/nvim
 ln -sf $PWD/vim_config/vimrc ~/.config/nvim/init.vim
+ln -sf $PWD/vim_config/coc-settings.json ~/.config/nvim/coc-settings.json
+
 
 #################
 . ~/.bashrc
