@@ -33,6 +33,9 @@ export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 export TERM=xterm-256color
 export TERM_ITALICS=true
 
+# brew install without update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # for http proxy
 alias proxy=`export http_proxy="http://127.0.0.1:1080"; export https_proxy="https://127.0.0.1:1080";export ftp_proxy=$http_proxy;export rsync_proxy=$http_proxy`
 
@@ -41,4 +44,5 @@ export CHEAT_USER_DIR='$HOME/.local/etc/cheat'
 
 # alias
 # alias vim=nvim
+
 
