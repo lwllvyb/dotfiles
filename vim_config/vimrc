@@ -183,5 +183,3 @@ noremap <leader>fs :<C-U><C-R>=printf("Leaderf gtags %s", "")<CR><CR>
 
 " 设置预定义代码路径
 let g:prepare_code_plugin_path = expand($HOME . "/.vim/plugged/prepare-code")
-
-source /Users/liwenlong03/.dotfiles/vim_config/vimrc
