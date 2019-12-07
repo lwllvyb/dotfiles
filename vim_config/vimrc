@@ -128,6 +128,10 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 " let g:Lf_CommandMap = {}
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.git'],
+            \ 'file': ['.gitignore', 'G*']
+            \}
 
 let g:Lf_NormalMap = {
 	\ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
