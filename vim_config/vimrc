@@ -68,6 +68,7 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
+Plug 'sts10/vim-pink-moon'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-fugitive'
@@ -166,6 +167,8 @@ augroup cbindings
   autocmd Filetype cpp,c,h nmap <buffer> <silent> fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
   autocmd Filetype cpp,c,h nmap <buffer> <silent> fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
   autocmd Filetype cpp,c,h nmap <buffer> <silent> fs :<C-U><C-R>=printf("Leaderf gtags %s", "")<CR><CR>
+  set ts=4
+  set shiftwidth=4
 augroup end
 
 augroup gobindings
@@ -178,6 +181,8 @@ augroup gobindings
   autocmd Filetype go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
   autocmd Filetype go,python nmap <buffer> <silent> <leader>o :<C-u>CocList outline<CR>	
   autocmd Filetype go,python au BufWrite * :Format
+  set ts=4
+  set shiftwidth=4
 augroup end
 "---------------------------------------------------------------------------------------------
 
