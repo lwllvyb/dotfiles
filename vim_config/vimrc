@@ -40,6 +40,10 @@ if has("mac")
 elseif has("unix")
 endif
 
+" 高亮当前行
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
+
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
 
@@ -88,7 +92,13 @@ Plug 'scrooloose/nerdcommenter'
 " 创建文件插入预定义代码
 Plug 'chxuan/prepare-code'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'Yggdroot/indentLine'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'ferrine/md-img-paste.vim'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 "---------------------------------------------------------------------------------------------
@@ -138,6 +148,7 @@ let g:Lf_NormalMap = {
 	\ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']],
 	\ "Mru":    [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
 	\ "Tag":    [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
+	\ "Rg": [["<ESC>", ':exec g:Lf_py "rgExplManager.quit()"<CR>']],
 	\ "Gtags":    [["<ESC>", ':exec g:Lf_py "gtagsExplManager.quit()"<CR>']],
 	\ "Function":    [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
 	\ "Colorscheme":    [["<ESC>", ':exec g:Lf_py "colorschemeExplManager.quit()"<CR>']],
@@ -149,12 +160,12 @@ let g:Lf_Gtagslabel = 'native-pygments'
 "---------------------------------------------------------------------------------------------
 augroup cbindings
   autocmd! cbindings
-  autocmd Filetype cpp nmap <buffer> <silent> fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-  autocmd Filetype cpp nmap <buffer> <silent> fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-  autocmd Filetype cpp nmap <buffer> <silent> fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-  autocmd Filetype cpp nmap <buffer> <silent> fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-  autocmd Filetype cpp nmap <buffer> <silent> fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
-  autocmd Filetype cpp nmap <buffer> <silent> fs :<C-U><C-R>=printf("Leaderf gtags %s", "")<CR><CR>
+  autocmd Filetype cpp,c,h nmap <buffer> <silent> fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+  autocmd Filetype cpp,c,h nmap <buffer> <silent> fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+  autocmd Filetype cpp,c,h nmap <buffer> <silent> fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+  autocmd Filetype cpp,c,h nmap <buffer> <silent> fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+  autocmd Filetype cpp,c,h nmap <buffer> <silent> fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+  autocmd Filetype cpp,c,h nmap <buffer> <silent> fs :<C-U><C-R>=printf("Leaderf gtags %s", "")<CR><CR>
 augroup end
 
 augroup gobindings
@@ -166,6 +177,7 @@ augroup gobindings
   autocmd Filetype go,python nmap <buffer> <silent> fo :<C-u>CocListResume<CR>
   autocmd Filetype go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
   autocmd Filetype go,python nmap <buffer> <silent> <leader>o :<C-u>CocList outline<CR>	
+  autocmd Filetype go,python au BufWrite * :Format
 augroup end
 "---------------------------------------------------------------------------------------------
 
@@ -200,3 +212,19 @@ let g:NERDToggleCheckAllLines = 1
 
 let g:NERDCreateDefaultMappings = 0
 map <leader>cc <plug>NERDCommenterToggle
+
+" creat user map command
+command! -nargs=1 Find :Leaderf! rg -e <f-args>
+command! -nargs=0 Tmp :e `=tempname()`
+command! -nargs=0 Bk :CocList bookmark
+nmap <Leader>bb <Plug>(coc-bookmark-annotate)
+nmap <Leader>bl :CocList bookmark<CR>
+
+
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+autocmd FileType markdown command! -nargs=0 Pic :call mdip#MarkdownClipboardImage()
+let g:mdip_imgdir = 'img'
+let g:mdip_imgname = 'image'
+
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
