@@ -67,8 +67,7 @@ Plug 'lfv89/vim-interestingwords'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-one'
-Plug 'sts10/vim-pink-moon'
+Plug 'joshdick/onedark.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-fugitive'
@@ -124,8 +123,8 @@ let g:session_autosave = 'yes'
 
 "---------------------------------------------------------------------------------------------
 set background=light
-colorscheme pink-moon
-let g:airline_theme='one'
+colorscheme onedark
+let g:airline_theme='onedark'
 
 "---------------------------------------------------------------------------------------------
 "noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s", expand("<cword>"))<CR><CR>
