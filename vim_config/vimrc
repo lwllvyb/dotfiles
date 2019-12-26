@@ -67,8 +67,6 @@ Plug 'lfv89/vim-interestingwords'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-one'
-Plug 'sts10/vim-pink-moon'
 Plug 'joshdick/onedark.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -144,9 +142,9 @@ let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
 
 "---------------------------------------------------------------------------------------------
-"set background=light
+set background=light
 colorscheme onedark
-let g:airline_theme='one'
+let g:airline_theme='onedark'
 
 "---------------------------------------------------------------------------------------------
 "noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s", expand("<cword>"))<CR><CR>
@@ -156,6 +154,7 @@ let g:Lf_ShortcutF = 'ff'
 let g:Lf_IgnoreCurrentBufferName = 1 " 当前buffer 不显示名字
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
