@@ -272,7 +272,7 @@ function! Random(n)
 	let s:i = 0
 	while s:i < a:n
 		let timestamp = reltimestr(reltime())[-3:]
-		let randomColor = float2nr(str2float(timestamp) / 300 * 100)
+		let randomColor = float2nr(str2float(timestamp) - floor(str2float(timestamp) / 250) * 250)
   		call add(g:interestingWordsTermColors, randomColor)
 		let s:i+=1
 	endwhile
