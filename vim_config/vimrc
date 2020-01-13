@@ -9,6 +9,7 @@ set hlsearch "搜索高亮
 syntax on
 
 set pastetoggle=<F2>
+set t_Co=256
 
 " 关闭 record
 map q <Nop>
@@ -103,6 +104,9 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'luochen1990/rainbow'
+
+Plug 'skywind3000/vim-terminal-help'
+Plug 'mhinz/neovim-remote'
 call plug#end()
 
 "---------------------------------------------------------------------------------------------
@@ -200,10 +204,12 @@ augroup cbindings
   set shiftwidth=4
 augroup end
 
+let g:go_build_tags = 'PRODUCT'
 augroup gobindings
   autocmd! gobindings
-  autocmd Filetype go,python nmap <buffer> <silent> fr <Plug>(coc-references)
-  autocmd Filetype go,python nmap <buffer> <silent> fd <Plug>(go-def)
+  autocmd Filetype go nmap <buffer> <silent> fr <Plug>(go-callers)
+  autocmd Filetype go nmap <buffer> <silent> fd <Plug>(go-def)
+  autocmd Filetype python nmap <buffer> <silent> fd <Plug>(coc-definition)
   autocmd Filetype go,python nmap <buffer> <silent> fn :<C-u>CocNext<CR>
   autocmd Filetype go,python nmap <buffer> <silent> fp :<C-u>CocPrev<CR>
   autocmd Filetype go,python nmap <buffer> <silent> fo :<C-u>CocListResume<CR>
@@ -303,13 +309,7 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
-function Float_test(l)
-	let buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(buf, 0, -1, v:true, a:l)
-    let opts = {'relative': 'cursor', 'width': 10, 'height': 2, 'col': 0,
-        \ 'row': 1, 'anchor': 'NW', 'style': 'minimal'}
-    let win = nvim_open_win(buf, 0, opts)
-    " optional: change highlight, otherwise Pmenu is used
-    call nvim_win_set_option(win, 'winhl', 'Normal:MyHighlight')
-endfunction
-command! -nargs=0 Test :call Float_test(getqflist()) <cr>
+
+
+nnoremap <C-w> :call TerminalToggle()<cr>
+tnoremap <C-e> <C-\><C-n>

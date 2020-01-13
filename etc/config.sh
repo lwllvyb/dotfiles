@@ -9,7 +9,7 @@ if [ -f "$HOME/.local/etc/z.sh" ]; then
 fi
 # enable bash completion
 # yum install bash-completion
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+[[ $PS1 -a -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
 # git completion
