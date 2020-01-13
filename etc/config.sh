@@ -9,16 +9,16 @@ if [ -f "$HOME/.local/etc/z.sh" ]; then
 fi
 # enable bash completion
 # yum install bash-completion
-[[ $PS1 -a -f /usr/share/bash-completion/bash_completion ]] && \
+[[ -n $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
 
 # git completion
 # curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.local/etc/git-completion.bash
 if [ "/bin/zsh" = "$SHELL" ]; then
-    echo "git-completion.zsh has bug"
-  # if [ -f "$HOME/.local/etc/git-completion.zsh" ]; then
-     # zstyle ':completion:*:*:git:*' script $HOME/.local/etc/git-completion.zsh
-  # fi
+    #echo "git-completion.zsh has bug"
+   if [ -f "$HOME/.local/etc/git-completion.zsh" ]; then
+    	zstyle ':completion:*:*:git:*' script $HOME/.local/etc/git-completion.zsh
+   fi
 else
   if [ -f "$HOME/.local/etc/git-completion.bash" ]; then
       . $HOME/.local/etc/git-completion.bash

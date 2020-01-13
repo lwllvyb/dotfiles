@@ -19,10 +19,10 @@ cd $PROJECT
 cp -rf etc/* $DST_ETC/
 
 ################# source init.sh
-sed -i "" "\:$DST_ETC/init.sh:d" ~/.bashrc
+sed -i "\:$DST_ETC/init.sh:d" ~/.bashrc
 echo ". $DST_ETC/init.sh" >> ~/.bashrc
 
-sed -i "" "\:$DST_ETC/init.sh:d" ~/.zshrc
+sed -i "\:$DST_ETC/init.sh:d" ~/.zshrc
 echo ". $DST_ETC/init.sh" >> ~/.zshrc
 
 
