@@ -105,8 +105,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'luochen1990/rainbow'
 
+"""""  内嵌 shell""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'skywind3000/vim-terminal-help'
-Plug 'mhinz/neovim-remote'
+""""" text         """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 "---------------------------------------------------------------------------------------------
@@ -313,3 +315,7 @@ let g:gutentags_plus_switch = 1
 
 nnoremap <C-w> :call TerminalToggle()<cr>
 tnoremap <C-e> <C-\><C-n>
+
+
+" 使用 ss 启用
+nmap ss <Plug>(easymotion-s2)
