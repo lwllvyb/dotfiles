@@ -54,6 +54,8 @@ com! FormatJSON %!python3 -m json.tool
 call plug#begin('~/.vim/plugged')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'skywind3000/vim-quickui'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'chxuan/vimplus-startify'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
@@ -216,7 +218,7 @@ augroup gobindings
   autocmd Filetype go,python nmap <buffer> <silent> fp :<C-u>CocPrev<CR>
   autocmd Filetype go,python nmap <buffer> <silent> fo :<C-u>CocListResume<CR>
   autocmd Filetype go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
-  autocmd Filetype go,python nmap <buffer> <silent> <leader>o :<C-u>CocList outline<CR>	
+  "autocmd Filetype go,python nmap <buffer> <silent> <leader>o :<C-u>CocList outline<CR>	
   autocmd Filetype go,python au BufWrite * :Format
   set ts=4
   set shiftwidth=4
@@ -312,10 +314,58 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
 
-
 nnoremap <C-w> :call TerminalToggle()<cr>
 tnoremap <C-e> <C-\><C-n>
 
-
 " 使用 ss 启用
 nmap ss <Plug>(easymotion-s2)
+
+" clear all the menus
+call quickui#menu#reset()
+
+" install a 'File' menu, use [text, command] to represent an item.
+call quickui#menu#install('&File', [
+            \ [ "&New File\tCtrl+n", 'new' ],
+            \ [ "&Open File\t(F3)", 'echo 1' ],
+            \ [ "&Close", 'echo 2' ],
+            \ [ "--", '' ],
+            \ [ "&Save\tCtrl+s", 'echo 3'],
+            \ [ "Save &As", 'echo 4' ],
+            \ [ "Save All", 'echo 5' ],
+            \ [ "--", '' ],
+            \ [ "E&xit\tAlt+x", 'echo 6' ],
+            \ ])
+
+" items containing tips, tips will display in the cmdline
+call quickui#menu#install('&Edit', [
+            \ [ '&Copy', 'echo 1', 'help 1' ],
+            \ [ '&Paste', 'echo 2', 'help 2' ],
+            \ [ '&Find', 'echo 3', 'help 3' ],
+            \ ])
+
+" script inside %{...} will be evaluated and expanded in the string
+call quickui#menu#install("&Option", [
+			\ ['Set &Spell %{&spell? "Off":"On"}', 'set spell!'],
+			\ ['Set &Cursor Line %{&cursorline? "Off":"On"}', 'set cursorline!'],
+			\ ['Set &Paste %{&paste? "Off":"On"}', 'set paste!'],
+			\ ])
+
+" register HELP menu with weight 1000
+call quickui#menu#install('H&elp', [
+			\ ["&Cheatsheet", 'help index', ''],
+			\ ['T&ips', 'help tips', ''],
+			\ ['--',''],
+			\ ["&Tutorial", 'help tutor', ''],
+			\ ['&Quick Reference', 'help quickref', ''],
+			\ ['&Summary', 'help summary', ''],
+			\ ], 10000)
+
+" enable to display tips in the cmdline
+let g:quickui_show_tip = 1
+let g:quickui_border_style = 2
+let g:quickui_color_scheme = 'solarized'
+
+" hit space twice to open menu
+noremap <space><space> :call quickui#menu#open()<cr>
+noremap <space>b :call quickui#tools#list_buffer('e')<cr>
+noremap <leader>o :call quickui#tools#list_function()<cr>
