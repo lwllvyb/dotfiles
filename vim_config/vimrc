@@ -378,9 +378,5 @@ noremap <space><space> :call quickui#menu#open()<cr>
 noremap <space>b :call quickui#tools#list_buffer('e')<cr>
 noremap <leader>o :call quickui#tools#list_function()<cr>
 
-tmap <expr> <F3> SendToTerm("\<C-d>")
-func SendToTerm(what)
-	echom a:what
-          call term_sendkeys('', a:what)
-          return ''
-        endfunc
+" close the terminal with job
+autocmd ExitPre * for i in term_list() | exe ':bd! ' . i | endfor
