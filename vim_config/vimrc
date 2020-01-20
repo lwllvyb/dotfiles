@@ -11,6 +11,9 @@ syntax on
 set pastetoggle=<F2>
 set t_Co=256
 
+silent !mkdir -p ~/.vim/backup > /dev/null 2>&1
+silent !mkdir -p ~/.vim/swap > /dev/null 2>&1
+silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
