@@ -11,6 +11,10 @@ syntax on
 set pastetoggle=<F2>
 set t_Co=256
 
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
 " 关闭 record
 map q <Nop>
 
@@ -73,7 +77,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -314,8 +319,8 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
 
-nnoremap <C-w> :call TerminalToggle()<cr>
-tnoremap <C-e> <C-\><C-n>
+nnoremap <C-e> :call TerminalToggle()<cr>
+tnoremap <C-e><C-e> <C-\><C-n>
 
 " 使用 ss 启用
 nmap ss <Plug>(easymotion-s2)
@@ -369,3 +374,10 @@ let g:quickui_color_scheme = 'solarized'
 noremap <space><space> :call quickui#menu#open()<cr>
 noremap <space>b :call quickui#tools#list_buffer('e')<cr>
 noremap <leader>o :call quickui#tools#list_function()<cr>
+
+tmap <expr> <F3> SendToTerm("\<C-d>")
+func SendToTerm(what)
+	echom a:what
+          call term_sendkeys('', a:what)
+          return ''
+        endfunc
