@@ -80,8 +80,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -103,6 +104,7 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'ap/vim-buftabline'
 
 Plug 'scrooloose/nerdcommenter'
+
 
 " 创建文件插入预定义代码
 Plug 'chxuan/prepare-code'
@@ -380,3 +382,9 @@ noremap <leader>o :call quickui#tools#list_function()<cr>
 
 " close the terminal with job
 autocmd ExitPre * for i in term_list() | exe ':bd! ' . i | endfor
+
+"
+nnoremap <silent> gn  :GitGutterNextHunk<cr>
+nnoremap <silent> gp  :GitGutterPrevHunk<cr>
+nnoremap <silent> gv  :GitGutterPreviewHunk<cr>
+set updatetime=100
