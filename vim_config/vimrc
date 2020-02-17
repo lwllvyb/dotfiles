@@ -104,10 +104,13 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'ap/vim-buftabline'
 
 Plug 'scrooloose/nerdcommenter'
+Plug 'tyru/caw.vim'
 
 
 " 创建文件插入预定义代码
 Plug 'chxuan/prepare-code'
+" 你自己的代码仓库 git 地址
+Plug 'keelii/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/indentLine'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -388,3 +391,16 @@ nnoremap <silent> gn  :GitGutterNextHunk<cr>
 nnoremap <silent> gp  :GitGutterPrevHunk<cr>
 nnoremap <silent> gv  :GitGutterPreviewHunk<cr>
 set updatetime=100
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
