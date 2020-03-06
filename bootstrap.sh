@@ -4,19 +4,19 @@ cd "$DIR"
 
 . scripts/functions.sh
 ################## var
-PROJECT=~/.dotfiles
-DST_ETC=~/.local/etc
-
-mkdir -p $DST_ETC
-
-# git clone respository
-rm -rf $PROJECT
-git clone https://github.com/lwllvyb/dotfiles.git $PROJECT
-if [ ! -d $PROJECT ]; then
-	echo "dotfile clone fail"
-	exit 1
+PROJECT=$HOME/.dotfiles
+DST_ETC=$HOME/.local/etc
+if [ "$PWD" != "$PROJECT" ]; then
+	# git clone respository
+	rm -rf $PROJECT
+	git clone https://github.com/lwllvyb/dotfiles.git $PROJECT
+	if [ ! -d $PROJECT ]; then
+		echo "dotfile clone fail"
+		exit 1
+	fi
+	cd $PROJECT
 fi
-cd $PROJECT
+
 
 #################
 # karabiner
