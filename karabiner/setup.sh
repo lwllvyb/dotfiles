@@ -1,13 +1,14 @@
-#! /usr/bin/env sh
-if [ "$(uname)" != "Darwin" ]; then
-	info "Not mac os, no need to install karabiner."
-	exit 0
-fi
+#!/bin/bash
 
 DIR=$(dirname "$0")
 cd "$DIR"
 
 . ../scripts/functions.sh
+
+if [ "$(uname)" != "Darwin" ]; then
+	info "Not mac os, no need to install karabiner."
+	exit 0
+fi
 
 SOURCE="$(realpath ./)"
 DESTINATION="$(realpath ~/.config/karabiner)"
