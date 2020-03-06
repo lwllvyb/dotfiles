@@ -1,8 +1,4 @@
 #! /usr/bin/env bash
-DIR=$(dirname "$0")
-cd "$DIR"
-
-. scripts/functions.sh
 ################## var
 PROJECT=$HOME/.dotfiles
 DST_ETC=$HOME/.local/etc
@@ -14,12 +10,13 @@ if [ "$PWD" != "$PROJECT" ]; then
 		echo "dotfile clone fail"
 		exit 1
 	fi
-	cd $PROJECT
+
 fi
+cd $PROJECT
+git pull origin master
 
+. scripts/functions.sh
 
-#################
-# karabiner
 find ./ -name "setup.sh" | while read setup; do
     $setup
 done
