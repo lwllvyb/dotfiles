@@ -16,14 +16,14 @@
                 },
                 "rules": [
                     {
-                        "description": "Change left_alt hjkl to arrow keys",
+                        "description": "Change left_gui hjkl to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_alt"
+                                            "left_gui"
                                         ]
                                     }
                                 },
@@ -39,7 +39,7 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_alt"
+                                            "left_gui"
                                         ]
                                     }
                                 },
@@ -55,7 +55,7 @@
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_alt"
+                                            "left_gui"
                                         ]
                                     }
                                 },
@@ -71,7 +71,7 @@
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_alt"
+                                            "left_gui"
                                         ]
                                     }
                                 },
@@ -271,18 +271,18 @@
                 },
                 {
                     "from": {
-                        "key_code": "left_alt"
-                    },
-                    "to": {
-                        "key_code": "left_command"
-                    }
-                },
-                {
-                    "from": {
                         "key_code": "left_gui"
                     },
                     "to": {
                         "key_code": "left_option"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "left_alt"
+                    },
+                    "to": {
+                        "key_code": "left_command"
                     }
                 }
             ],
