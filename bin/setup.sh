@@ -31,10 +31,10 @@ shell_format() {
 }
 
 info "Setting up $APP.."
-if [ "$(uname)" == "Darwin" ]; then
-	shell_format "Darwin"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	shell_format "Linux"
-fi
+# if [ "$(uname)" == "Darwin" ]; then
+#     shell_format "Darwin"
+# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+#     shell_format "Linux"
+# fi
 
 success "Finished setting up $APP."
