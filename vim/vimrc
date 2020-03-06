@@ -55,7 +55,6 @@ highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NO
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
 
-com! FormatJSON %!python3 -m json.tool
 
 
 call plug#begin('~/.vim/plugged')
@@ -84,9 +83,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'
+	Plug 'mhinz/vim-signify'
 else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+	Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -416,10 +415,17 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-
-" format
-"au BufWrite * :Autoformat
-autocmd FileType python autocmd BufWrite * :Autoformat
+com! FormatShell %!~/.dotfiles/bin/shfmt -p -i 4 -bn -ci -s
+com! FormatJSON %!python3 -m json.tool
+augroup formats
+	autocmd! formats
+	" format python
+	autocmd FileType vim,python autocmd BufWrite * :Autoformat
+	" format shell
+	" autocmd FileType sh autocmd BufWrite * :FormatShell
+	" format json
+	autocmd FileType json autocmd BufWrite * :FormatJSON
+augroup end
 
 " 语法
 "
