@@ -91,10 +91,10 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " python
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
@@ -231,21 +231,23 @@ augroup cbindings
 	set shiftwidth=4
 augroup end
 
-let g:go_build_tags = 'PRODUCT'
+" let g:go_build_tags = 'PRODUCT'
 augroup gobindings
 	autocmd! gobindings
-	autocmd Filetype go nmap <buffer> <silent> fr <Plug>(go-callers)
-	autocmd Filetype go nmap <buffer> <silent> fd <Plug>(go-def)
-	autocmd Filetype python nmap <buffer> <silent> fd <Plug>(coc-definition)
-	autocmd Filetype go,python nmap <buffer> <silent> fn :<C-u>CocNext<CR>
-	autocmd Filetype go,python nmap <buffer> <silent> fp :<C-u>CocPrev<CR>
-	autocmd Filetype go,python nmap <buffer> <silent> fo :<C-u>CocListResume<CR>
-	autocmd Filetype go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
+	autocmd Filetype go nmap <buffer> <silent> fr <Plug>(coc-references)
+	" autocmd Filetype go nmap <buffer> <silent> fd <Plug>(go-def)
+	autocmd Filetype sh,go,python nmap <buffer> <silent> fd <Plug>(coc-definition)
+	autocmd Filetype sh,go,python nmap <buffer> <silent> fn :<C-u>CocNext<CR>
+	autocmd Filetype sh,go,python nmap <buffer> <silent> fp :<C-u>CocPrev<CR>
+	autocmd Filetype sh,go,python nmap <buffer> <silent> fo :<C-u>CocListResume<CR>
+	autocmd Filetype sh,go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
 	"autocmd Filetype go,python nmap <buffer> <silent> <leader>o :<C-u>CocList outline<CR>
-	autocmd Filetype go,python au BufWrite * :Format
+	autocmd Filetype json,go,python au BufWrite * :Format
 	set ts=4
 	set shiftwidth=4
 augroup end
+" highlight json comment
+autocmd FileType json syntax match Comment +\/\/.\+$+
 "---------------------------------------------------------------------------------------------
 
 " 设置预定义代码路径
@@ -420,11 +422,13 @@ com! FormatJSON %!python3 -m json.tool
 augroup formats
 	autocmd! formats
 	" format python
-	autocmd FileType vim,python autocmd BufWrite * :Autoformat
+	"autocmd FileType vim,python autocmd BufWrite * :Autoformat
 	" format shell
 	" autocmd FileType sh autocmd BufWrite * :FormatShell
 	" format json
-	autocmd FileType json autocmd BufWrite * :FormatJSON
+	" autocmd FileType json autocmd BufWrite * :FormatJSON
+	" format golang and import
+	autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 augroup end
 
 " 语法
@@ -456,3 +460,4 @@ hi! SpellRare gui=undercurl guisp=magenta
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
+

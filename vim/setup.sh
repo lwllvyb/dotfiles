@@ -13,6 +13,7 @@ info "Setting up $APP..."
 substep_info "Installing vim8..."
 mv $HOME/.vimrc $HOME/.vimrc.bak.$(date +"%Y%m%d_%H%M")
 symlink "$SOURCE/vimrc" "$HOME/.vimrc"
+symlink "$SOURCE/coc-settings.json" "$HOME/.vim/coc-settings.json"
 substep_info "Finished installing vim8."
 
 substep_info "Installing nvim..."
