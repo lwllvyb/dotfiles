@@ -1,0 +1,42 @@
+{
+	"title": "this is title",
+	"rules": [
+		{
+			"description": "vim",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "f",
+						"modifiers": {
+							"mandatory": [
+								"left_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "page_down"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "b",
+						"modifiers": {
+							"mandatory": [
+								"left_control"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "page_up"
+						}
+					]
+				}
+			]
+		}
+	]
+}
