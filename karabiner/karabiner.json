@@ -83,6 +83,43 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "vim",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
@@ -271,18 +308,18 @@
                 },
                 {
                     "from": {
-                        "key_code": "left_gui"
-                    },
-                    "to": {
-                        "key_code": "left_option"
-                    }
-                },
-                {
-                    "from": {
                         "key_code": "left_alt"
                     },
                     "to": {
                         "key_code": "left_command"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "left_gui"
+                    },
+                    "to": {
+                        "key_code": "left_option"
                     }
                 }
             ],
