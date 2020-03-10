@@ -219,14 +219,14 @@ augroup cbindings
 				\ "--glob=!git/*",
 				\ "--hidden"
 				\ ]
-	autocmd Filetype cpp,c,h nmap <buffer> <silent> fr :GscopeFind c <C-R><C-W><cr>
-	autocmd Filetype cpp,c,h nmap <buffer> <silent> fd :GscopeFind g <C-R><C-W><cr>
+	" autocmd Filetype cpp,c,h nmap <buffer> <silent> fr :GscopeFind c <C-R><C-W><cr>
+	" autocmd Filetype cpp,c,h nmap <buffer> <silent> fd :GscopeFind g <C-R><C-W><cr>
+	" autocmd Filetype cpp,c,h nmap <buffer> <silent> fs :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 	"  autocmd Filetype cpp,c,h nmap <buffer> <silent> fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
 	"  autocmd Filetype cpp,c,h nmap <buffer> <silent> fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
 	"  autocmd Filetype cpp,c,h nmap <buffer> <silent> fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 	"  autocmd Filetype cpp,c,h nmap <buffer> <silent> fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 	"  autocmd Filetype cpp,c,h nmap <buffer> <silent> fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
-	autocmd Filetype cpp,c,h nmap <buffer> <silent> fs :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
 	set ts=4
 	set shiftwidth=4
 augroup end
@@ -234,13 +234,14 @@ augroup end
 " let g:go_build_tags = 'PRODUCT'
 augroup gobindings
 	autocmd! gobindings
-	autocmd Filetype go nmap <buffer> <silent> fr <Plug>(coc-references)
+	autocmd Filetype cpp,c,h,go nmap <buffer> <silent> fr <Plug>(coc-references)
 	" autocmd Filetype go nmap <buffer> <silent> fd <Plug>(go-def)
-	autocmd Filetype sh,go,python nmap <buffer> <silent> fd <Plug>(coc-definition)
+	autocmd Filetype cpp,c,h,sh,go,python nmap <buffer> <silent> fd <Plug>(coc-definition)
+	autocmd Filetype cpp,c,h,sh,go,python nmap <buffer> <silent> fi <Plug>(coc-implementation)
 	autocmd Filetype sh,go,python nmap <buffer> <silent> fn :<C-u>CocNext<CR>
 	autocmd Filetype sh,go,python nmap <buffer> <silent> fp :<C-u>CocPrev<CR>
 	autocmd Filetype sh,go,python nmap <buffer> <silent> fo :<C-u>CocListResume<CR>
-	autocmd Filetype sh,go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
+	autocmd Filetype cpp,c,h,sh,go,python nmap <buffer> <silent> fs  :<C-u>CocList -I symbols<cr>
 	"autocmd Filetype go,python nmap <buffer> <silent> <leader>o :<C-u>CocList outline<CR>
 	autocmd Filetype json,go,python au BufWrite * :Format
 	set ts=4

@@ -1,5 +1,27 @@
 {
 	"languageserver": {
+		"ccls": {
+			"command": "ccls",
+			"trace.server": "verbose",
+			"filetypes": [
+				"c",
+				"cpp",
+				"h",
+				"objc",
+				"objcpp"
+			],
+			"rootPatterns": [
+				".ccls",
+				"compile_commands.json",
+				".git/",
+				".hg/"
+			],
+			"initializationOptions": {
+				"cache": {
+					"directory": "/Users/liwenlong03/.ccls"
+				}
+			}
+		},
 		"golang": {
 			"command": "gopls",
 			"rootPatterns": [
