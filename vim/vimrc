@@ -48,14 +48,8 @@ if has("mac")
 elseif has("unix")
 endif
 
-" 高亮当前行
-set cursorline
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
-
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
-
-
 
 call plug#begin('~/.vim/plugged')
 
@@ -177,6 +171,10 @@ let g:session_autosave = 'yes'
 colorscheme onedark
 set background=dark " for the dark version
 let g:airline_theme='onedark'
+
+" 高亮当前行
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
 "---------------------------------------------------------------------------------------------
 "noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s", expand("<cword>"))<CR><CR>
