@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /bin/bash
 
 realpath() {
 	python -c "import os; print(os.path.realpath('$1'))"
