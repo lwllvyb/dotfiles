@@ -22,8 +22,8 @@ if [ "$(uname)" == "Darwin" ]; then
 	if [ -f "$HOME/.zshrc" ]; then
 		substep_info "Installing zsh for Mac..."
 		for script in ${scripts[@]}; do
-			sed -i '' "\:$SOURCE/${script}:d" $HOME/.bashrc
-			echo ". $SOURCE/${script}" >> $HOME/.bashrc
+			sed -i '' "\:$SOURCE/${script}:d" $HOME/.zshrc
+			echo ". $SOURCE/${script}" >> $HOME/.zshrc
 		done
 		substep_info "Finished installing zsh for Mac."
 	fi
@@ -39,8 +39,8 @@ elif [ "$(uname -s)" == "Linux" ]; then
 	if [ -f "$HOME/.zshrc" ]; then
 		substep_info "Installing zsh for Linux..."
 		for script in ${scripts[@]}; do
-			sed -i "\:$SOURCE/${script}:d" $HOME/.bashrc
-			echo ". $SOURCE/${script}" >> $HOME/.bashrc
+			sed -i "\:$SOURCE/${script}:d" $HOME/.zshrc
+			echo ". $SOURCE/${script}" >> $HOME/.zshrc
 		done
 		substep_info "Finished installing zsh for Linux."
 	fi
