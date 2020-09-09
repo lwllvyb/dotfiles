@@ -11,19 +11,7 @@ syntax on
 set pastetoggle=<F2>
 set t_Co=256
 
-if !isdirectory("~/.vim/backup")
-	call mkdir("~/.vim/backup", "p")
-endif
-if !isdirectory("~/.vim/swap")
-	call mkdir("~/.vim/swap", "p")
-endif
-if !isdirectory("~/.vim/undo")
-	call mkdir("~/.vim/undo", "p")
-endif
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
-set undofile
-set undodir=~/.vim/undo
+set nobackup
 
 " 关闭 record
 map q <Nop>
@@ -191,8 +179,8 @@ highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=N
 "---------------------------------------------------------------------------------------------
 "noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s", expand("<cword>"))<CR><CR>
 "noremap go :<C-U>Leaderf! rg --recall<CR>
-noremap rr :<C-U><C-R>=printf("Leaderf mru")<CR><CR>
-let g:Lf_ShortcutF = 'ff'
+noremap pr :<C-U><C-R>=printf("Leaderf mru")<CR><CR>
+let g:Lf_ShortcutF = 'pf'
 let g:Lf_IgnoreCurrentBufferName = 1 " 当前buffer 不显示名字
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.git']

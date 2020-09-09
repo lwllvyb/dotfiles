@@ -17,7 +17,7 @@ git pull origin master
 
 . scripts/functions.sh
 
-find ./ -name "setup.sh" | while read setup; do
+find ./ -name "setup.sh" | sort | while read setup; do
     $setup
 done
 
