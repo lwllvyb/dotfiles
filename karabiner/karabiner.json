@@ -20,6 +20,82 @@
 						"manipulators": [
 							{
 								"from": {
+									"key_code": "i",
+									"modifiers": {
+										"mandatory": [
+											"left_gui"
+										],
+										"optional": [
+											"any"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "page_up"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
+									"key_code": "o",
+									"modifiers": {
+										"mandatory": [
+											"left_gui"
+										],
+										"optional": [
+											"any"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "page_down"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
+									"key_code": "p",
+									"modifiers": {
+										"mandatory": [
+											"left_gui"
+										],
+										"optional": [
+											"any"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "home"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
+									"key_code": "[",
+									"modifiers": {
+										"mandatory": [
+											"left_gui"
+										],
+										"optional": [
+											"any"
+										]
+									}
+								},
+								"to": [
+									{
+										"key_code": "end"
+									}
+								],
+								"type": "basic"
+							},
+							{
+								"from": {
 									"key_code": "h",
 									"modifiers": {
 										"mandatory": [
@@ -95,72 +171,6 @@
 								"type": "basic"
 							}
 						]
-					},
-					{
-						"description": "Map Fn + Backspace to Forward Delete",
-						"manipulators": [
-							{
-								"from": {
-									"key_code": "delete_or_backspace",
-									"modifiers": {
-										"mandatory": [
-											"fn"
-										]
-									}
-								},
-								"to": [
-									{
-										"key_code": "delete_forward"
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "fn + Esc  to ` Grave Accent, Tilde",
-						"manipulators": [
-							{
-								"from": {
-									"key_code": "escape",
-									"modifiers": {
-										"mandatory": [
-											"fn"
-										]
-									}
-								},
-								"to": [
-									{
-										"key_code": "grave_accent_and_tilde"
-									}
-								],
-								"type": "basic"
-							}
-						]
-					},
-					{
-						"description": "Shift + Esc to Shift + `",
-						"manipulators": [
-							{
-								"from": {
-									"key_code": "escape",
-									"modifiers": {
-										"mandatory": [
-											"left_shift"
-										]
-									}
-								},
-								"to": [
-									{
-										"key_code": "grave_accent_and_tilde",
-										"modifiers": [
-											"left_shift"
-										]
-									}
-								],
-								"type": "basic"
-							}
-						]
 					}
 				]
 			},
@@ -198,7 +208,7 @@
 								"key_code": "left_gui"
 							},
 							"to": {
-								"key_code": "fn"
+								"key_code": "left_command"
 							}
 						}
 					]
@@ -221,14 +231,6 @@
 							},
 							"to": {
 								"key_code": "left_control"
-							}
-						},
-						{
-							"from": {
-								"key_code": "left_alt"
-							},
-							"to": {
-								"key_code": "fn"
 							}
 						},
 						{
@@ -316,6 +318,19 @@
 							}
 						}
 					]
+				},
+				{
+					"disable_built_in_keyboard_if_exists": false,
+					"fn_function_keys": [],
+					"identifiers": {
+						"is_keyboard": true,
+						"is_pointing_device": false,
+						"product_id": 50484,
+						"vendor_id": 1133
+					},
+					"ignore": false,
+					"manipulate_caps_lock_led": false,
+					"simple_modifications": []
 				}
 			],
 			"fn_function_keys": [
