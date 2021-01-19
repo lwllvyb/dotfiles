@@ -18,8 +18,8 @@ map q <Nop>
 
 " 开启折叠
 " zc zo
-set foldmethod=syntax
-set foldnestmax=1
+" set foldmethod=syntax
+" set foldnestmax=1
 
 inoremap jj <Esc>`^
 map <C-.> <Esc>`^
@@ -75,7 +75,7 @@ Plug 'rakr/vim-one'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 if has('nvim') || has('patch-8.0.902')
 	Plug 'mhinz/vim-signify'
@@ -124,6 +124,7 @@ Plug 'ferrine/md-img-paste.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 Plug 'luochen1990/rainbow'
+Plug 'jiangmiao/auto-pairs'
 
 """""  内嵌 shell""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'skywind3000/vim-terminal-help'

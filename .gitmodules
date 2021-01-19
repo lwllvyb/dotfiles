@@ -1,0 +1,6 @@
+[submodule "package/z.lua"]
+	path = package/z.lua
+	url = https://github.com/skywind3000/z.lua
+[submodule "package/.tmux"]
+	path = package/.tmux
+	url = https://github.com/gpakosz/.tmux.git
