@@ -9,7 +9,7 @@ SOURCE="$(realpath ./)"
 APP="shell"
 
 info "Setting up $APP..."
-scripts=(init.sh z.sh promot_256.sh)
+scripts=(init.sh promot_256.sh)
 
 if [ "$(uname)" == "Darwin" ]; then
 	substep_info "Installing bash for Mac..."
@@ -25,6 +25,8 @@ if [ "$(uname)" == "Darwin" ]; then
 			sed -i '' "\:$SOURCE/${script}:d" $HOME/.zshrc
 			echo ". $SOURCE/${script}" >> $HOME/.zshrc
 		done
+		sed -i '' "\:z.lua/z.lua:d" $HOME/.zshrc
+		echo 'eval "$(lua '$SOURCE'/z.lua/z.lua --init zsh enhanced once echo)"' >> $HOME/.zshrc
 		substep_info "Finished installing zsh for Mac."
 	fi
     # Do something unde Mac OS X platform

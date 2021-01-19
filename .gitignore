@@ -1,2 +1,3 @@
-karabiner/*
-!karabiner/karabiner.json
+1_karabiner/*
+!1_karabiner/karabiner.json
+.DS_Store
