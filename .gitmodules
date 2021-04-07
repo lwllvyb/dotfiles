@@ -4,9 +4,6 @@
 [submodule "package/.tmux"]
 	path = package/.tmux
 	url = https://github.com/gpakosz/.tmux.git
-[submodule "3_tmux/tmux"]
-	path = 3_tmux/tmux
-	url = https://github.com/gpakosz/.tmux.git
 [submodule "4_shell/z.lua"]
 	path = 4_shell/z.lua
 	url = https://github.com/skywind3000/z.lua
