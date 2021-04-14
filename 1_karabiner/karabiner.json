@@ -39,7 +39,7 @@
 							},
 							{
 								"from": {
-									"key_code": "o",
+									"key_code": "u",
 									"modifiers": {
 										"mandatory": [
 											"left_gui"
@@ -58,7 +58,7 @@
 							},
 							{
 								"from": {
-									"key_code": "p",
+									"key_code": "o",
 									"modifiers": {
 										"mandatory": [
 											"left_gui"
@@ -77,7 +77,7 @@
 							},
 							{
 								"from": {
-									"key_code": "[",
+									"key_code": "p",
 									"modifiers": {
 										"mandatory": [
 											"left_gui"
