@@ -74,6 +74,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'rhysd/vim-clang-format'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -115,7 +117,9 @@ Plug 'tyru/caw.vim'
 " 创建文件插入预定义代码
 Plug 'chxuan/prepare-code'
 " 你自己的代码仓库 git 地址
-Plug 'keelii/vim-snippets'
+Plug 'honza/vim-snippets'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'APZelos/blamer.nvim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/indentLine'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -170,12 +174,10 @@ let g:session_autosave = 'yes'
 
 "---------------------------------------------------------------------------------------------
 colorscheme onedark
-set background=dark " for the dark version
 let g:airline_theme='onedark'
 
 " 高亮当前行
 set cursorline
-highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
 "---------------------------------------------------------------------------------------------
 "noremap <C-G> :<C-U><C-R>=printf("Leaderf! rg --append -e %s", expand("<cword>"))<CR><CR>
@@ -468,4 +470,28 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 
 let $GOPATH=system("git rev-parse --show-toplevel | tr -d '\\n'")
+
+
+" clang-format
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
+
+map J :+5<CR>
+map K :-5<CR>
+function! s:find_git_root()
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+	
+command! ProjectFiles execute 'Leaderf file ' s:find_git_root()
+noremap <leader>pf :ProjectFiles<CR>
+ "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+ noremap <leader>ps :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+ " search visually selected text literally
+ xnoremap <leader>ps :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+ noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" 配置 git blame
+ let g:blamer_enabled = 1
+ let g:blamer_delay = 500
+ let g:blamer_date_format = '%d/%m/%y-%H:%M'
+ let g:blamer_template = '<commit-short> <committer-time> <committer> <summary>'
 
