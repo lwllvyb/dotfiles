@@ -9,7 +9,7 @@ SOURCE="$(realpath ./)"
 APP="shell"
 
 info "Setting up $APP..."
-scripts=(init.sh promot_256.sh)
+scripts=(init.sh promot_256.sh bash_profile)
 
 if [ "$(uname)" == "Darwin" ]; then
 	substep_info "Installing bash for Mac..."
@@ -23,7 +23,7 @@ if [ "$(uname)" == "Darwin" ]; then
 		substep_info "Installing zsh for Mac..."
 		for script in ${scripts[@]}; do
 			sed -i '' "\:$SOURCE/${script}:d" $HOME/.zshrc
-			echo ". $SOURCE/${script}" >> $HOME/.zshrc
+			echo "source $SOURCE/${script}" >> $HOME/.zshrc
 		done
 		sed -i '' "\:z.lua/z.lua:d" $HOME/.zshrc
 		echo 'eval "$(lua '$SOURCE'/z.lua/z.lua --init zsh enhanced once echo)"' >> $HOME/.zshrc
@@ -42,7 +42,7 @@ elif [ "$(uname -s)" == "Linux" ]; then
 		substep_info "Installing zsh for Linux..."
 		for script in ${scripts[@]}; do
 			sed -i "\:$SOURCE/${script}:d" $HOME/.zshrc
-			echo ". $SOURCE/${script}" >> $HOME/.zshrc
+			echo "source $SOURCE/${script}" >> $HOME/.zshrc
 		done
 		substep_info "Finished installing zsh for Linux."
 	fi
