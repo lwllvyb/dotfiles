@@ -11,7 +11,21 @@ syntax on
 set pastetoggle=<F2>
 set t_Co=256
 
+" Some servers have issues with backup files, see #649.
 set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " 关闭 record
 map q <Nop>
@@ -121,6 +135,8 @@ Plug 'honza/vim-snippets'
 Plug 'APZelos/blamer.nvim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/indentLine'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'MattesGroeger/vim-bookmarks'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'ferrine/md-img-paste.vim'
 
@@ -295,11 +311,15 @@ let g:NERDCreateDefaultMappings = 0
 map <leader>ll <plug>NERDCommenterToggle
 
 " creat user map command
-command! -nargs=1 Find :Leaderf! rg -e <f-args>
-command! -nargs=0 Tmp :e `=tempname()`
-command! -nargs=0 Bk :CocList bookmark
-nmap <Leader>bb <Plug>(coc-bookmark-annotate)
-nmap <Leader>bl :CocList bookmark<CR>
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+let g:bookmark_no_default_key_mappings = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
+nmap <Leader>mm :BookmarkAnnotate<CR>
+nmap <Leader>ma :BookmarkShowAll<CR>
 
 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
