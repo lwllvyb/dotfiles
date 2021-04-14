@@ -135,6 +135,12 @@ Plug 'skywind3000/vim-terminal-help'
 """"" text         """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'easymotion/vim-easymotion'
 call plug#end()
+"---------------------------------------------------------------------------------------------
+" auto install plugin
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
 
 "---------------------------------------------------------------------------------------------
 map <leader>nn :NERDTreeToggle<CR>
@@ -492,6 +498,8 @@ noremap <leader>pf :ProjectFiles<CR>
 " 配置 git blame
  let g:blamer_enabled = 1
  let g:blamer_delay = 500
- let g:blamer_date_format = '%d/%m/%y-%H:%M'
+ let g:blamer_date_format = '%y/%m/%d-%H:%M'
  let g:blamer_template = '<commit-short> <committer-time> <committer> <summary>'
+ let g:blamer_show_in_visual_modes = 0
+ let g:blamer_show_in_insert_modes = 0
 
