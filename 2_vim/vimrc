@@ -8,6 +8,8 @@ set number
 set hlsearch "搜索高亮
 syntax on
 
+set encoding=utf-8
+
 set pastetoggle=<F2>
 set t_Co=256
 
