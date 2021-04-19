@@ -7,3 +7,6 @@
 [submodule "4_shell/z.lua"]
 	path = 4_shell/z.lua
 	url = https://github.com/skywind3000/z.lua
+[submodule "2_vim/vim-init"]
+	path = 2_vim/vim-init
+	url = https://github.com/lwllvyb/vim-init

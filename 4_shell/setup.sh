@@ -26,7 +26,7 @@ if [ "$(uname)" == "Darwin" ]; then
 			echo "source $SOURCE/${script}" >> $HOME/.zshrc
 		done
 		sed -i '' "\:z.lua/z.lua:d" $HOME/.zshrc
-		echo 'eval "$(lua '$SOURCE'/z.lua/z.lua --init zsh enhanced once echo)"' >> $HOME/.zshrc
+		echo 'eval "$(lua '$SOURCE'/z.lua --init zsh enhanced once echo)"' >> $HOME/.zshrc
 		substep_info "Finished installing zsh for Mac."
 	fi
     # Do something unde Mac OS X platform
@@ -44,6 +44,7 @@ elif [ "$(uname -s)" == "Linux" ]; then
 			sed -i "\:$SOURCE/${script}:d" $HOME/.zshrc
 			echo "source $SOURCE/${script}" >> $HOME/.zshrc
 		done
+		echo 'eval "$(lua '$SOURCE'/z.lua --init zsh enhanced once echo)"' >> $HOME/.zshrc
 		substep_info "Finished installing zsh for Linux."
 	fi
 else
