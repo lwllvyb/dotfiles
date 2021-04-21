@@ -34,6 +34,8 @@ set rtp+=~/.vim
 " 加载基础配置
 LoadScript init/init-basic.vim
 
+LoadScript init/init-ui.vim
+
 " 加载扩展配置
 "LoadScript init/init-config.vim
 

@@ -6,7 +6,6 @@ let g:maplocalleader=';'
 " 基础配置
 set number
 set hlsearch "搜索高亮
-syntax on
 
 set encoding=utf-8
 
@@ -205,8 +204,6 @@ let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
 
 "---------------------------------------------------------------------------------------------
-colorscheme onedark
-let g:airline_theme='onedark'
 
 " 高亮当前行
 set cursorline
@@ -511,12 +508,6 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>ff :ClangFormat<CR>
 
 map J :+5<CR>
 map K :-5<CR>
-function! s:find_git_root()
-    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-endfunction
-	
-command! ProjectFiles execute 'Leaderf file ' s:find_git_root()
-noremap <leader>pf :ProjectFiles<CR>
  "noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
  noremap <leader>ps :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
  " search visually selected text literally
@@ -539,6 +530,7 @@ function! s:find_git_root()
 endfunction
 command! ProjectFiles execute 'Files' s:find_git_root()
 noremap <leader>pf :ProjectFiles<CR>
+ noremap <leader>ps :<C-U><C-R>=printf("Rg %s", expand("<cword>"))<CR>
 
 " coc-fzf
 let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
@@ -546,3 +538,25 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>hh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Plugin 'octol/vim-cpp-enhanced-highlight'
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
